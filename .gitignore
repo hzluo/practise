@@ -14,7 +14,8 @@ webapi-format/packages
 webapi-format/webapi-format/logs
 webapi-format/webapi-format/bin
 webapi-format/webapi-format/obj
-
+webapi-format/test/bin
+webapi-format/test/obj
 
 /tmp
 
