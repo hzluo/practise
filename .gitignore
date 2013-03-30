@@ -1,0 +1,24 @@
+/build/tools/ps-gets/
+.idea/
+
+# ReSharper is a .NET coding add-in
+_ReSharper*
+notification-service.5.1.ReSharper.user
+
+#package folder
+webapi-format/packages
+
+.git
+*.log
+
+webapi-format/webapi-format/logs
+webapi-format/webapi-format/bin
+webapi-format/webapi-format/obj
+
+
+/tmp
+
+# User-specific files
+*.suo
+*.sln.DotSettings.user
+notification-service.suo
