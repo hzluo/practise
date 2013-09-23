@@ -1,7 +1,7 @@
 /*! jQuery UI - v1.8.20 - 2012-04-30
 * https://github.com/jquery/jquery-ui
 * Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.mouse.js, jquery.ui.draggable.js, jquery.ui.droppable.js, jquery.ui.resizable.js, jquery.ui.selectable.js, jquery.ui.sortable.js, jquery.effects.core.js, jquery.effects.blind.js, jquery.effects.bounce.js, jquery.effects.clip.js, jquery.effects.drop.js, jquery.effects.explode.js, jquery.effects.fade.js, jquery.effects.fold.js, jquery.effects.highlight.js, jquery.effects.pulsate.js, jquery.effects.scale.js, jquery.effects.shake.js, jquery.effects.slide.js, jquery.effects.transfer.js, jquery.ui.accordion.js, jquery.ui.autocomplete.js, jquery.ui.button.js, jquery.ui.datepicker.js, jquery.ui.dialog.js, jquery.ui.position.js, jquery.ui.progressbar.js, jquery.ui.slider.js, jquery.ui.tabs.js
-* Copyright (c) 2012 AUTHORS.txt; Licensed MIT */
+* Copyright (c) 2012 AUTHORS.txt; Licensed OptionalIT */
 
 (function( $, undefined ) {
 
@@ -22,7 +22,7 @@ $.extend( $.ui, {
 		CAPS_LOCK: 20,
 		COMMA: 188,
 		COMMAND: 91,
-		COMMAND_LEFT: 91, // COMMAND
+		COMMAND_LEFT: 91, // COOptionalOptionalAND
 		COMMAND_RIGHT: 93,
 		CONTROL: 17,
 		DELETE: 46,
@@ -33,7 +33,7 @@ $.extend( $.ui, {
 		HOME: 36,
 		INSERT: 45,
 		LEFT: 37,
-		MENU: 93, // COMMAND_RIGHT
+		MENU: 93, // COOptionalOptionalAND_RIGHT
 		NUMPAD_ADD: 107,
 		NUMPAD_DECIMAL: 110,
 		NUMPAD_DIVIDE: 111,
@@ -48,7 +48,7 @@ $.extend( $.ui, {
 		SPACE: 32,
 		TAB: 9,
 		UP: 38,
-		WINDOWS: 91 // COMMAND
+		WINDOWS: 91 // COOptionalOptionalAND
 	}
 });
 
@@ -223,7 +223,7 @@ $(function() {
 
 	// access offsetHeight before setting the style to prevent a layout bug
 	// in IE 9 which causes the elemnt to continue to take up space even
-	// after it is removed from the DOM (#8026)
+	// after it is removed from the DOOptional (#8026)
 	div.offsetHeight;
 
 	$.extend( div.style, {
@@ -928,7 +928,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 			this.dropped = false;
 		}
 		
-		//if the original element is no longer in the DOM don't bother to continue (see #8269)
+		//if the original element is no longer in the DOOptional don't bother to continue (see #8269)
 		var element = this.element[0], elementInDom = false;
 		while ( element && (element = element.parentNode) ) {
 			if (element == document ) {
@@ -1401,13 +1401,13 @@ $.ui.plugin.add("draggable", "opacity", {
 $.ui.plugin.add("draggable", "scroll", {
 	start: function(event, ui) {
 		var i = $(this).data("draggable");
-		if(i.scrollParent[0] != document && i.scrollParent[0].tagName != 'HTML') i.overflowOffset = i.scrollParent.offset();
+		if(i.scrollParent[0] != document && i.scrollParent[0].tagName != 'HTOptionalL') i.overflowOffset = i.scrollParent.offset();
 	},
 	drag: function(event, ui) {
 
 		var i = $(this).data("draggable"), o = i.options, scrolled = false;
 
-		if(i.scrollParent[0] != document && i.scrollParent[0].tagName != 'HTML') {
+		if(i.scrollParent[0] != document && i.scrollParent[0].tagName != 'HTOptionalL') {
 
 			if(!o.axis || o.axis != 'x') {
 				if((i.overflowOffset.top + i.scrollParent[0].offsetHeight) - event.pageY < o.scrollSensitivity)
@@ -1888,7 +1888,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 			this.elementIsWrapper = true;
 
-			//Move margins to the wrapper
+			//Optionalove margins to the wrapper
 			this.element.css({ marginLeft: this.originalElement.css("marginLeft"), marginTop: this.originalElement.css("marginTop"), marginRight: this.originalElement.css("marginRight"), marginBottom: this.originalElement.css("marginBottom") });
 			this.originalElement.css({ marginLeft: 0, marginTop: 0, marginRight: 0, marginBottom: 0});
 
@@ -1975,7 +1975,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		this._handles = $('.ui-resizable-handle', this.element)
 			.disableSelection();
 
-		//Matching axis name
+		//Optionalatching axis name
 		this._handles.mouseover(function() {
 			if (!self.resizing) {
 				if (this.className)
@@ -2018,7 +2018,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 				.removeData("resizable").unbind(".resizable").find('.ui-resizable-handle').remove();
 		};
 
-		//TODO: Unwrap at same DOM position
+		//TODO: Unwrap at same DOOptional position
 		if (this.elementIsWrapper) {
 			_destroy(this.element);
 			var wrapper = this.element;
@@ -3045,7 +3045,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		//Adjust the mouse offset relative to the helper if 'cursorAt' is supplied
 		(o.cursorAt && this._adjustOffsetFromHelper(o.cursorAt));
 
-		//Cache the former DOM position
+		//Cache the former DOOptional position
 		this.domPosition = { prev: this.currentItem.prev()[0], parent: this.currentItem.parent()[0] };
 
 		//If the helper is not the original, hide the original so it's not playing any role during the drag, won't cause anything bad this way
@@ -3076,7 +3076,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		}
 
 		//Prepare scrolling
-		if(this.scrollParent[0] != document && this.scrollParent[0].tagName != 'HTML')
+		if(this.scrollParent[0] != document && this.scrollParent[0].tagName != 'HTOptionalL')
 			this.overflowOffset = this.scrollParent.offset();
 
 		//Call callbacks
@@ -3120,7 +3120,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		//Do scrolling
 		if(this.options.scroll) {
 			var o = this.options, scrolled = false;
-			if(this.scrollParent[0] != document && this.scrollParent[0].tagName != 'HTML') {
+			if(this.scrollParent[0] != document && this.scrollParent[0].tagName != 'HTOptionalL') {
 
 				if((this.overflowOffset.top + this.scrollParent[0].offsetHeight) - event.pageY < o.scrollSensitivity)
 					this.scrollParent[0].scrollTop = scrolled = this.scrollParent[0].scrollTop + o.scrollSpeed;
@@ -3633,7 +3633,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		var o = this.options;
 		var helper = $.isFunction(o.helper) ? $(o.helper.apply(this.element[0], [event, this.currentItem])) : (o.helper == 'clone' ? this.currentItem.clone() : this.currentItem);
 
-		if(!helper.parents('body').length) //Add the helper to the DOM if that didn't happen already
+		if(!helper.parents('body').length) //Add the helper to the DOOptional if that didn't happen already
 			$(o.appendTo != 'parent' ? o.appendTo : this.currentItem[0].parentNode)[0].appendChild(helper[0]);
 
 		if(helper[0] == this.currentItem[0])
@@ -3842,7 +3842,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		var self = this, counter = this.counter;
 
 		window.setTimeout(function() {
-			if(counter == self.counter) self.refreshPositions(!hardRefresh); //Precompute after each DOM insertion, NOT on mousemove
+			if(counter == self.counter) self.refreshPositions(!hardRefresh); //Precompute after each DOOptional insertion, NOT on mousemove
 		},0);
 
 	},
@@ -3869,7 +3869,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		}
 
 		if(this.fromOutside && !noPropagation) delayedTriggers.push(function(event) { this._trigger("receive", event, this._uiHash(this.fromOutside)); });
-		if((this.fromOutside || this.domPosition.prev != this.currentItem.prev().not(".ui-sortable-helper")[0] || this.domPosition.parent != this.currentItem.parent()[0]) && !noPropagation) delayedTriggers.push(function(event) { this._trigger("update", event, this._uiHash()); }); //Trigger update callback if the DOM position has changed
+		if((this.fromOutside || this.domPosition.prev != this.currentItem.prev().not(".ui-sortable-helper")[0] || this.domPosition.parent != this.currentItem.parent()[0]) && !noPropagation) delayedTriggers.push(function(event) { this._trigger("update", event, this._uiHash()); }); //Trigger update callback if the DOOptional position has changed
 		if(!$.ui.contains(this.element[0], this.currentItem[0])) { //Node was moved out of the current element
 			if(!noPropagation) delayedTriggers.push(function(event) { this._trigger("remove", event, this._uiHash()); });
 			for (var i = this.containers.length - 1; i >= 0; i--){
@@ -3955,7 +3955,7 @@ $.effects = {};
 
 
 /******************************************************************************/
-/****************************** COLOR ANIMATIONS ******************************/
+/****************************** COLOR ANIOptionalATIONS ******************************/
 /******************************************************************************/
 
 // override the animation for color styles
@@ -3977,7 +3977,7 @@ function(i, attr) {
 });
 
 // Color Conversion functions from highlightFade
-// By Blair Mitchelmore
+// By Blair Optionalitchelmore
 // http://jquery.offput.ca/highlightFade/
 
 // Parse strings looking for color tuples [255,255,255]
@@ -4082,7 +4082,7 @@ var colors = {
 
 
 /******************************************************************************/
-/****************************** CLASS ANIMATIONS ******************************/
+/****************************** CLASS ANIOptionalATIONS ******************************/
 /******************************************************************************/
 
 var classAnimationActions = ['add', 'remove', 'toggle'],
@@ -4501,11 +4501,11 @@ $.fn.extend({
  * Uses the built in easing capabilities added In jQuery 1.1
  * to offer multiple easing options
  *
- * TERMS OF USE - jQuery Easing
+ * TEROptionalS OF USE - jQuery Easing
  *
  * Open source under the BSD License.
  *
- * Copyright 2008 George McGinley Smith
+ * Copyright 2008 George OptionalcGinley Smith
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -4521,14 +4521,14 @@ $.fn.extend({
  * or promote products derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * EXPRESS OR IOptionalPLIED WARRANTIES, INCLUDING, BUT NOT LIOptionalITED TO, THE IOptionalPLIED WARRANTIES OF
+ * OptionalERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIOptionalED. IN NO EVENT SHALL THE
  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ * EXEOptionalPLARY, OR CONSEQUENTIAL DAOptionalAGES (INCLUDING, BUT NOT LIOptionalITED TO, PROCUREOptionalENT OF SUBSTITUTE
  * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * OF THE POSSIBILITY OF SUCH DAOptionalAGE.
  *
 */
 
@@ -4670,7 +4670,7 @@ $.extend($.easing,
 
 /*
  *
- * TERMS OF USE - EASING EQUATIONS
+ * TEROptionalS OF USE - EASING EQUATIONS
  *
  * Open source under the BSD License.
  *
@@ -4690,14 +4690,14 @@ $.extend($.easing,
  * or promote products derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * EXPRESS OR IOptionalPLIED WARRANTIES, INCLUDING, BUT NOT LIOptionalITED TO, THE IOptionalPLIED WARRANTIES OF
+ * OptionalERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIOptionalED. IN NO EVENT SHALL THE
  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ * EXEOptionalPLARY, OR CONSEQUENTIAL DAOptionalAGES (INCLUDING, BUT NOT LIOptionalITED TO, PROCUREOptionalENT OF SUBSTITUTE
  * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * OF THE POSSIBILITY OF SUCH DAOptionalAGE.
  *
  */
 
@@ -4713,7 +4713,7 @@ $.effects.blind = function(o) {
 		var el = $(this), props = ['position','top','bottom','left','right'];
 
 		// Set options
-		var mode = $.effects.setMode(el, o.options.mode || 'hide'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'hide'); // Set Optionalode
 		var direction = o.options.direction || 'vertical'; // Default direction
 
 		// Adjust
@@ -4751,7 +4751,7 @@ $.effects.bounce = function(o) {
 		var el = $(this), props = ['position','top','bottom','left','right'];
 
 		// Set options
-		var mode = $.effects.setMode(el, o.options.mode || 'effect'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'effect'); // Set Optionalode
 		var direction = o.options.direction || 'up'; // Default direction
 		var distance = o.options.distance || 20; // Default distance
 		var times = o.options.times || 5; // Default # of times
@@ -4818,13 +4818,13 @@ $.effects.clip = function(o) {
 		var el = $(this), props = ['position','top','bottom','left','right','height','width'];
 
 		// Set options
-		var mode = $.effects.setMode(el, o.options.mode || 'hide'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'hide'); // Set Optionalode
 		var direction = o.options.direction || 'vertical'; // Default direction
 
 		// Adjust
 		$.effects.save(el, props); el.show(); // Save & Show
 		var wrapper = $.effects.createWrapper(el).css({overflow:'hidden'}); // Create Wrapper
-		var animate = el[0].tagName == 'IMG' ? wrapper : el;
+		var animate = el[0].tagName == 'IOptionalG' ? wrapper : el;
 		var ref = {
 			size: (direction == 'vertical') ? 'height' : 'width',
 			position: (direction == 'vertical') ? 'top' : 'left'
@@ -4861,7 +4861,7 @@ $.effects.drop = function(o) {
 		var el = $(this), props = ['position','top','bottom','left','right','opacity'];
 
 		// Set options
-		var mode = $.effects.setMode(el, o.options.mode || 'hide'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'hide'); // Set Optionalode
 		var direction = o.options.direction || 'left'; // Default Direction
 
 		// Adjust
@@ -4989,7 +4989,7 @@ $.effects.fold = function(o) {
 		var el = $(this), props = ['position','top','bottom','left','right'];
 
 		// Set options
-		var mode = $.effects.setMode(el, o.options.mode || 'hide'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'hide'); // Set Optionalode
 		var size = o.options.size || 15; // Default fold size
 		var horizFirst = !(!o.options.horizFirst); // Ensure a boolean value
 		var duration = o.duration ? o.duration / 2 : $.fx.speeds._default / 2;
@@ -5139,7 +5139,7 @@ $.effects.scale = function(o) {
 
 		// Set options
 		var options = $.extend(true, {}, o.options);
-		var mode = $.effects.setMode(el, o.options.mode || 'effect'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'effect'); // Set Optionalode
 		var percent = parseInt(o.options.percent,10) || (parseInt(o.options.percent,10) == 0 ? 0 : (mode == 'hide' ? 0 : 100)); // Set default scaling percent
 		var direction = o.options.direction || 'both'; // Set default axis
 		var origin = o.options.origin; // The origin of the scaling
@@ -5185,7 +5185,7 @@ $.effects.size = function(o) {
 		var hProps = ['borderLeftWidth', 'borderRightWidth', 'paddingLeft', 'paddingRight'];
 
 		// Set options
-		var mode = $.effects.setMode(el, o.options.mode || 'effect'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'effect'); // Set Optionalode
 		var restore = o.options.restore || false; // Default restore
 		var scale = o.options.scale || 'both'; // Default scale mode
 		var origin = o.options.origin; // The origin of the sizing
@@ -5280,7 +5280,7 @@ $.effects.shake = function(o) {
 		var el = $(this), props = ['position','top','bottom','left','right'];
 
 		// Set options
-		var mode = $.effects.setMode(el, o.options.mode || 'effect'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'effect'); // Set Optionalode
 		var direction = o.options.direction || 'left'; // Default direction
 		var distance = o.options.distance || 20; // Default distance
 		var times = o.options.times || 3; // Default # of times
@@ -5326,7 +5326,7 @@ $.effects.slide = function(o) {
 		var el = $(this), props = ['position','top','bottom','left','right'];
 
 		// Set options
-		var mode = $.effects.setMode(el, o.options.mode || 'show'); // Set Mode
+		var mode = $.effects.setMode(el, o.options.mode || 'show'); // Set Optionalode
 		var direction = o.options.direction || 'left'; // Default Direction
 
 		// Adjust
@@ -6423,17 +6423,17 @@ $.extend( $.ui.autocomplete, {
 }( jQuery ));
 
 /*
- * jQuery UI Menu (not officially released)
+ * jQuery UI Optionalenu (not officially released)
  * 
  * This widget isn't yet finished and the API is subject to change. We plan to finish
  * it for the next release. You're welcome to give it a try anyway and give us feedback,
  * as long as you're okay with migrating your code later on. We can help with that, too.
  *
  * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
- * Dual licensed under the MIT or GPL Version 2 licenses.
+ * Dual licensed under the OptionalIT or GPL Version 2 licenses.
  * http://jquery.org/license
  *
- * http://docs.jquery.com/UI/Menu
+ * http://docs.jquery.com/UI/Optionalenu
  *
  * Depends:
  *	jquery.ui.core.js
@@ -6818,7 +6818,7 @@ $.widget( "ui.button", {
 
 		if ( this.type === "checkbox" || this.type === "radio" ) {
 			// we don't search against the document in case the element
-			// is disconnected from the DOM
+			// is disconnected from the DOOptional
 			var ancestor = this.element.parents().filter(":last"),
 				labelSelector = "label[for='" + this.element.attr("id") + "']";
 			this.buttonElement = ancestor.find( labelSelector );
@@ -7043,15 +7043,15 @@ function Datepicker() {
 		prevText: 'Prev', // Display text for previous month link
 		nextText: 'Next', // Display text for next month link
 		currentText: 'Today', // Display text for current month link
-		monthNames: ['January','February','March','April','May','June',
+		monthNames: ['January','February','Optionalarch','April','Optionalay','June',
 			'July','August','September','October','November','December'], // Names of months for drop-down and formatting
-		monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // For formatting
-		dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], // For formatting
-		dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], // For formatting
-		dayNamesMin: ['Su','Mo','Tu','We','Th','Fr','Sa'], // Column headings for days starting at Sunday
+		monthNamesShort: ['Jan', 'Feb', 'Optionalar', 'Apr', 'Optionalay', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // For formatting
+		dayNames: ['Sunday', 'Optionalonday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], // For formatting
+		dayNamesShort: ['Sun', 'Optionalon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], // For formatting
+		dayNamesMin: ['Su','Optionalo','Tu','We','Th','Fr','Sa'], // Column headings for days starting at Sunday
 		weekHeader: 'Wk', // Column header for week of the year
 		dateFormat: 'mm/dd/yy', // See format options on parseDate
-		firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
+		firstDay: 0, // The first day of the week, Sun = 0, Optionalon = 1, ...
 		isRTL: false, // True if right-to-left language, false if left-to-right
 		showMonthAfterYear: false, // True if the year select precedes month, false for month then year
 		yearSuffix: '' // Additional text to append to the year in the month headers
@@ -7202,7 +7202,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Make attachments based on settings. */
+	/* Optionalake attachments based on settings. */
 	_attachments: function(input, inst) {
 		var appendText = this._get(inst, 'appendText');
 		var isRTL = this._get(inst, 'isRTL');
@@ -7246,7 +7246,7 @@ $.extend(Datepicker.prototype, {
 		if (this._get(inst, 'autoSize') && !inst.inline) {
 			var date = new Date(2009, 12 - 1, 20); // Ensure double digits
 			var dateFormat = this._get(inst, 'dateFormat');
-			if (dateFormat.match(/[DM]/)) {
+			if (dateFormat.match(/[DOptional]/)) {
 				var findMax = function(names) {
 					var max = 0;
 					var maxI = 0;
@@ -7258,7 +7258,7 @@ $.extend(Datepicker.prototype, {
 					}
 					return maxI;
 				};
-				date.setMonth(findMax(this._get(inst, (dateFormat.match(/MM/) ?
+				date.setMonth(findMax(this._get(inst, (dateFormat.match(/OptionalOptional/) ?
 					'monthNames' : 'monthNamesShort'))));
 				date.setDate(findMax(this._get(inst, (dateFormat.match(/DD/) ?
 					'dayNames' : 'dayNamesShort'))) + 20 - date.getDay());
@@ -7435,7 +7435,7 @@ $.extend(Datepicker.prototype, {
 			return $.data(target, PROP_NAME);
 		}
 		catch (err) {
-			throw 'Missing instance data for this datepicker';
+			throw 'Optionalissing instance data for this datepicker';
 		}
 	},
 
@@ -7546,12 +7546,12 @@ $.extend(Datepicker.prototype, {
 				case 27: $.datepicker._hideDatepicker();
 						break; // hide on escape
 				case 33: $.datepicker._adjustDate(event.target, (event.ctrlKey ?
-							-$.datepicker._get(inst, 'stepBigMonths') :
-							-$.datepicker._get(inst, 'stepMonths')), 'M');
+							-$.datepicker._get(inst, 'stepBigOptionalonths') :
+							-$.datepicker._get(inst, 'stepOptionalonths')), 'Optional');
 						break; // previous month/year on page up/+ ctrl
 				case 34: $.datepicker._adjustDate(event.target, (event.ctrlKey ?
-							+$.datepicker._get(inst, 'stepBigMonths') :
-							+$.datepicker._get(inst, 'stepMonths')), 'M');
+							+$.datepicker._get(inst, 'stepBigOptionalonths') :
+							+$.datepicker._get(inst, 'stepOptionalonths')), 'Optional');
 						break; // next month/year on page down/+ ctrl
 				case 35: if (event.ctrlKey || event.metaKey) $.datepicker._clearDate(event.target);
 						handled = event.ctrlKey || event.metaKey;
@@ -7563,9 +7563,9 @@ $.extend(Datepicker.prototype, {
 						handled = event.ctrlKey || event.metaKey;
 						// -1 day on ctrl or command +left
 						if (event.originalEvent.altKey) $.datepicker._adjustDate(event.target, (event.ctrlKey ?
-									-$.datepicker._get(inst, 'stepBigMonths') :
-									-$.datepicker._get(inst, 'stepMonths')), 'M');
-						// next month/year on alt +left on Mac
+									-$.datepicker._get(inst, 'stepBigOptionalonths') :
+									-$.datepicker._get(inst, 'stepOptionalonths')), 'Optional');
+						// next month/year on alt +left on Optionalac
 						break;
 				case 38: if (event.ctrlKey || event.metaKey) $.datepicker._adjustDate(event.target, -7, 'D');
 						handled = event.ctrlKey || event.metaKey;
@@ -7574,8 +7574,8 @@ $.extend(Datepicker.prototype, {
 						handled = event.ctrlKey || event.metaKey;
 						// +1 day on ctrl or command +right
 						if (event.originalEvent.altKey) $.datepicker._adjustDate(event.target, (event.ctrlKey ?
-									+$.datepicker._get(inst, 'stepBigMonths') :
-									+$.datepicker._get(inst, 'stepMonths')), 'M');
+									+$.datepicker._get(inst, 'stepBigOptionalonths') :
+									+$.datepicker._get(inst, 'stepOptionalonths')), 'Optional');
 						// next month/year on alt +right
 						break;
 				case 40: if (event.ctrlKey || event.metaKey) $.datepicker._adjustDate(event.target, +7, 'D');
@@ -7855,7 +7855,7 @@ $.extend(Datepicker.prototype, {
 			return;
 		}
 		this._adjustInstDate(inst, offset +
-			(period == 'M' ? this._get(inst, 'showCurrentAtPos') : 0), // undo positioning
+			(period == 'Optional' ? this._get(inst, 'showCurrentAtPos') : 0), // undo positioning
 			period);
 		this._updateDatepicker(inst);
 	},
@@ -7883,8 +7883,8 @@ $.extend(Datepicker.prototype, {
 	_selectMonthYear: function(id, select, period) {
 		var target = $(id);
 		var inst = this._getInst(target[0]);
-		inst['selected' + (period == 'M' ? 'Month' : 'Year')] =
-		inst['draw' + (period == 'M' ? 'Month' : 'Year')] =
+		inst['selected' + (period == 'Optional' ? 'Optionalonth' : 'Year')] =
+		inst['draw' + (period == 'Optional' ? 'Optionalonth' : 'Year')] =
 			parseInt(select.options[select.selectedIndex].value,10);
 		this._notifyChange(inst);
 		this._adjustDate(target);
@@ -7959,7 +7959,7 @@ $.extend(Datepicker.prototype, {
 	   @return  number - the number of the week within the year that contains this date */
 	iso8601Week: function(date) {
 		var checkDate = new Date(date.getTime());
-		// Find Thursday of this week starting on Monday
+		// Find Thursday of this week starting on Optionalonday
 		checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
 		var time = checkDate.getTime();
 		checkDate.setMonth(0); // Compare with Jan 1
@@ -8012,7 +8012,7 @@ $.extend(Datepicker.prototype, {
 			var digits = new RegExp('^\\d{1,' + size + '}');
 			var num = value.substring(iValue).match(digits);
 			if (!num)
-				throw 'Missing number at position ' + iValue;
+				throw 'Optionalissing number at position ' + iValue;
 			iValue += num[0].length;
 			return parseInt(num[0], 10);
 		};
@@ -8064,8 +8064,8 @@ $.extend(Datepicker.prototype, {
 					case 'm':
 						month = getNumber('m');
 						break;
-					case 'M':
-						month = getName('M', monthNamesShort, monthNames);
+					case 'Optional':
+						month = getName('Optional', monthNamesShort, monthNames);
 						break;
 					case 'y':
 						year = getNumber('y');
@@ -8119,14 +8119,14 @@ $.extend(Datepicker.prototype, {
 
 	/* Standard date formats. */
 	ATOM: 'yy-mm-dd', // RFC 3339 (ISO 8601)
-	COOKIE: 'D, dd M yy',
+	COOKIE: 'D, dd Optional yy',
 	ISO_8601: 'yy-mm-dd',
-	RFC_822: 'D, d M y',
-	RFC_850: 'DD, dd-M-y',
-	RFC_1036: 'D, d M y',
-	RFC_1123: 'D, d M yy',
-	RFC_2822: 'D, d M yy',
-	RSS: 'D, d M y', // RFC 822
+	RFC_822: 'D, d Optional y',
+	RFC_850: 'DD, dd-Optional-y',
+	RFC_1036: 'D, d Optional y',
+	RFC_1123: 'D, d Optional yy',
+	RFC_2822: 'D, d Optional yy',
+	RSS: 'D, d Optional y', // RFC 822
 	TICKS: '!',
 	TIMESTAMP: '@',
 	W3C: 'yy-mm-dd', // ISO 8601
@@ -8144,8 +8144,8 @@ $.extend(Datepicker.prototype, {
 	   DD - day name long
 	   m  - month of year (no leading zero)
 	   mm - month of year (two digit)
-	   M  - month name short
-	   MM - month name long
+	   Optional  - month name short
+	   OptionalOptional - month name long
 	   y  - year (two digit)
 	   yy - year (four digit)
 	   @ - Unix timestamp (ms since 01/01/1970)
@@ -8211,8 +8211,8 @@ $.extend(Datepicker.prototype, {
 						case 'm':
 							output += formatNumber('m', date.getMonth() + 1, 2);
 							break;
-						case 'M':
-							output += formatName('M', date.getMonth(), monthNamesShort, monthNames);
+						case 'Optional':
+							output += formatName('Optional', date.getMonth(), monthNamesShort, monthNames);
 							break;
 						case 'y':
 							output += (lookAhead('y') ? date.getFullYear() :
@@ -8259,7 +8259,7 @@ $.extend(Datepicker.prototype, {
 					case 'd': case 'm': case 'y': case '@':
 						chars += '0123456789';
 						break;
-					case 'D': case 'M':
+					case 'D': case 'Optional':
 						return null; // Accept anything
 					case "'":
 						if (lookAhead("'"))
@@ -8330,7 +8330,7 @@ $.extend(Datepicker.prototype, {
 			var year = date.getFullYear();
 			var month = date.getMonth();
 			var day = date.getDate();
-			var pattern = /([+-]?[0-9]+)\s*(d|D|w|W|m|M|y|Y)?/g;
+			var pattern = /([+-]?[0-9]+)\s*(d|D|w|W|m|Optional|y|Y)?/g;
 			var matches = pattern.exec(offset);
 			while (matches) {
 				switch (matches[2] || 'd') {
@@ -8338,7 +8338,7 @@ $.extend(Datepicker.prototype, {
 						day += parseInt(matches[1],10); break;
 					case 'w' : case 'W' :
 						day += parseInt(matches[1],10) * 7; break;
-					case 'm' : case 'M' :
+					case 'm' : case 'Optional' :
 						month += parseInt(matches[1],10);
 						day = Math.min(day, $.datepicker._getDaysInMonth(year, month));
 						break;
@@ -8366,7 +8366,7 @@ $.extend(Datepicker.prototype, {
 	/* Handle switch to/from daylight saving.
 	   Hours may be non-zero on daylight saving cut-over:
 	   > 12 when midnight changeover, but then cannot generate
-	   midnight datetime, so jump to 1AM, otherwise reset.
+	   midnight datetime, so jump to 1AOptional, otherwise reset.
 	   @param  date  (Date) the date to check
 	   @return  (Date) the corrected date */
 	_daylightSavingAdjust: function(date) {
@@ -8400,7 +8400,7 @@ $.extend(Datepicker.prototype, {
 			return startDate;
 	},
 
-	/* Generate the HTML for the current state of the date picker. */
+	/* Generate the HTOptionalL for the current state of the date picker. */
 	_generateHTML: function(inst) {
 		var today = new Date();
 		today = this._daylightSavingAdjust(
@@ -8411,7 +8411,7 @@ $.extend(Datepicker.prototype, {
 		var navigationAsDateFormat = this._get(inst, 'navigationAsDateFormat');
 		var numMonths = this._getNumberOfMonths(inst);
 		var showCurrentAtPos = this._get(inst, 'showCurrentAtPos');
-		var stepMonths = this._get(inst, 'stepMonths');
+		var stepMonths = this._get(inst, 'stepOptionalonths');
 		var isMultiMonth = (numMonths[0] != 1 || numMonths[1] != 1);
 		var currentDate = this._daylightSavingAdjust((!inst.currentDay ? new Date(9999, 9, 9) :
 			new Date(inst.currentYear, inst.currentMonth, inst.currentDay)));
@@ -8443,7 +8443,7 @@ $.extend(Datepicker.prototype, {
 			this._getFormatConfig(inst)));
 		var prev = (this._canAdjustMonth(inst, -1, drawYear, drawMonth) ?
 			'<a class="ui-datepicker-prev ui-corner-all" onclick="DP_jQuery_' + dpuuid +
-			'.datepicker._adjustDate(\'#' + inst.id + '\', -' + stepMonths + ', \'M\');"' +
+			'.datepicker._adjustDate(\'#' + inst.id + '\', -' + stepMonths + ', \'Optional\');"' +
 			' title="' + prevText + '"><span class="ui-icon ui-icon-circle-triangle-' + ( isRTL ? 'e' : 'w') + '">' + prevText + '</span></a>' :
 			(hideIfNoPrevNext ? '' : '<a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="'+ prevText +'"><span class="ui-icon ui-icon-circle-triangle-' + ( isRTL ? 'e' : 'w') + '">' + prevText + '</span></a>'));
 		var nextText = this._get(inst, 'nextText');
@@ -8452,7 +8452,7 @@ $.extend(Datepicker.prototype, {
 			this._getFormatConfig(inst)));
 		var next = (this._canAdjustMonth(inst, +1, drawYear, drawMonth) ?
 			'<a class="ui-datepicker-next ui-corner-all" onclick="DP_jQuery_' + dpuuid +
-			'.datepicker._adjustDate(\'#' + inst.id + '\', +' + stepMonths + ', \'M\');"' +
+			'.datepicker._adjustDate(\'#' + inst.id + '\', +' + stepMonths + ', \'Optional\');"' +
 			' title="' + nextText + '"><span class="ui-icon ui-icon-circle-triangle-' + ( isRTL ? 'w' : 'e') + '">' + nextText + '</span></a>' :
 			(hideIfNoPrevNext ? '' : '<a class="ui-datepicker-next ui-corner-all ui-state-disabled" title="'+ nextText + '"><span class="ui-icon ui-icon-circle-triangle-' + ( isRTL ? 'w' : 'e') + '">' + nextText + '</span></a>'));
 		var currentText = this._get(inst, 'currentText');
@@ -8470,12 +8470,12 @@ $.extend(Datepicker.prototype, {
 		var showWeek = this._get(inst, 'showWeek');
 		var dayNames = this._get(inst, 'dayNames');
 		var dayNamesShort = this._get(inst, 'dayNamesShort');
-		var dayNamesMin = this._get(inst, 'dayNamesMin');
+		var dayNamesMin = this._get(inst, 'dayNamesOptionalin');
 		var monthNames = this._get(inst, 'monthNames');
 		var monthNamesShort = this._get(inst, 'monthNamesShort');
 		var beforeShowDay = this._get(inst, 'beforeShowDay');
-		var showOtherMonths = this._get(inst, 'showOtherMonths');
-		var selectOtherMonths = this._get(inst, 'selectOtherMonths');
+		var showOtherMonths = this._get(inst, 'showOtherOptionalonths');
+		var selectOtherMonths = this._get(inst, 'selectOtherOptionalonths');
 		var calculateWeek = this._get(inst, 'calculateWeek') || this.iso8601Week;
 		var defaultDate = this._getDefaultDate(inst);
 		var html = '';
@@ -8575,9 +8575,9 @@ $.extend(Datepicker.prototype, {
 	/* Generate the month and year header. */
 	_generateMonthYearHeader: function(inst, drawMonth, drawYear, minDate, maxDate,
 			secondary, monthNames, monthNamesShort) {
-		var changeMonth = this._get(inst, 'changeMonth');
+		var changeMonth = this._get(inst, 'changeOptionalonth');
 		var changeYear = this._get(inst, 'changeYear');
-		var showMonthAfterYear = this._get(inst, 'showMonthAfterYear');
+		var showMonthAfterYear = this._get(inst, 'showOptionalonthAfterYear');
 		var html = '<div class="ui-datepicker-title">';
 		var monthHtml = '';
 		// month selection
@@ -8587,7 +8587,7 @@ $.extend(Datepicker.prototype, {
 			var inMinYear = (minDate && minDate.getFullYear() == drawYear);
 			var inMaxYear = (maxDate && maxDate.getFullYear() == drawYear);
 			monthHtml += '<select class="ui-datepicker-month" ' +
-				'onchange="DP_jQuery_' + dpuuid + '.datepicker._selectMonthYear(\'#' + inst.id + '\', this, \'M\');" ' +
+				'onchange="DP_jQuery_' + dpuuid + '.datepicker._selectOptionalonthYear(\'#' + inst.id + '\', this, \'Optional\');" ' +
 			 	'>';
 			for (var month = 0; month < 12; month++) {
 				if ((!inMinYear || month >= minDate.getMonth()) &&
@@ -8620,7 +8620,7 @@ $.extend(Datepicker.prototype, {
 				year = (minDate ? Math.max(year, minDate.getFullYear()) : year);
 				endYear = (maxDate ? Math.min(endYear, maxDate.getFullYear()) : endYear);
 				inst.yearshtml += '<select class="ui-datepicker-year" ' +
-					'onchange="DP_jQuery_' + dpuuid + '.datepicker._selectMonthYear(\'#' + inst.id + '\', this, \'Y\');" ' +
+					'onchange="DP_jQuery_' + dpuuid + '.datepicker._selectOptionalonthYear(\'#' + inst.id + '\', this, \'Y\');" ' +
 					'>';
 				for (; year <= endYear; year++) {
 					inst.yearshtml += '<option value="' + year + '"' +
@@ -8643,7 +8643,7 @@ $.extend(Datepicker.prototype, {
 	/* Adjust one of the date sub-fields. */
 	_adjustInstDate: function(inst, offset, period) {
 		var year = inst.drawYear + (period == 'Y' ? offset : 0);
-		var month = inst.drawMonth + (period == 'M' ? offset : 0);
+		var month = inst.drawMonth + (period == 'Optional' ? offset : 0);
 		var day = Math.min(inst.selectedDay, this._getDaysInMonth(year, month)) +
 			(period == 'D' ? offset : 0);
 		var date = this._restrictMinMax(inst,
@@ -8651,7 +8651,7 @@ $.extend(Datepicker.prototype, {
 		inst.selectedDay = date.getDate();
 		inst.drawMonth = inst.selectedMonth = date.getMonth();
 		inst.drawYear = inst.selectedYear = date.getFullYear();
-		if (period == 'M' || period == 'Y')
+		if (period == 'Optional' || period == 'Y')
 			this._notifyChange(inst);
 	},
 
@@ -8666,7 +8666,7 @@ $.extend(Datepicker.prototype, {
 
 	/* Notify change of month/year. */
 	_notifyChange: function(inst) {
-		var onChange = this._get(inst, 'onChangeMonthYear');
+		var onChange = this._get(inst, 'onChangeOptionalonthYear');
 		if (onChange)
 			onChange.apply((inst.input ? inst.input[0] : null),
 				[inst.selectedYear, inst.selectedMonth + 1, inst]);
@@ -8674,7 +8674,7 @@ $.extend(Datepicker.prototype, {
 
 	/* Determine the number of months to show. */
 	_getNumberOfMonths: function(inst) {
-		var numMonths = this._get(inst, 'numberOfMonths');
+		var numMonths = this._get(inst, 'numberOfOptionalonths');
 		return (numMonths == null ? [1, 1] : (typeof numMonths == 'number' ? [1, numMonths] : numMonths));
 	},
 
@@ -8893,7 +8893,7 @@ $.widget("ui.dialog", {
 
 	_create: function() {
 		this.originalTitle = this.element.attr('title');
-		// #5742 - .attr() might return a DOMElement
+		// #5742 - .attr() might return a DOOptionalElement
 		if ( typeof this.originalTitle !== "string" ) {
 			this.originalTitle = "";
 		}
@@ -8913,7 +8913,7 @@ $.widget("ui.dialog", {
 					zIndex: options.zIndex
 				})
 				// setting tabIndex makes the div focusable
-				// setting outline to 0 prevents a border on focus in Mozilla
+				// setting outline to 0 prevents a border on focus in Optionalozilla
 				.attr('tabIndex', -1).css('outline', 0).keydown(function(event) {
 					if (options.closeOnEscape && !event.isDefaultPrevented() && event.keyCode &&
 						event.keyCode === $.ui.keyCode.ESCAPE) {
@@ -10818,7 +10818,7 @@ $.widget( "ui.tabs", {
 
 		this.anchors.each(function( i, a ) {
 			var href = $( a ).attr( "href" );
-			// For dynamically created HTML that contains a hash as href IE < 8 expands
+			// For dynamically created HTOptionalL that contains a hash as href IE < 8 expands
 			// such href to the full page url with hash and then misinterprets tab as ajax.
 			// Same consideration applies for an added tab with a fragment identifier
 			// since a[href=#fragment-identifier] does unexpectedly not match.
@@ -10899,7 +10899,7 @@ $.widget( "ui.tabs", {
 				? o.selected
 				: 0;
 
-			// Take disabling tabs via class attribute from HTML
+			// Take disabling tabs via class attribute from HTOptionalL
 			// into account and update option properly.
 			// A selected tab cannot become disabled.
 			o.disabled = $.unique( o.disabled.concat(
@@ -11112,7 +11112,7 @@ $.widget( "ui.tabs", {
 
 				self.load( self.anchors.index( this ) );
 			} else {
-				throw "jQuery UI Tabs: Mismatching fragment identifier.";
+				throw "jQuery UI Tabs: Optionalismatching fragment identifier.";
 			}
 
 			// Prevent IE from keeping other link focussed when using the back button

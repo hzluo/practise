@@ -68,7 +68,7 @@ namespace test
             var request = new HttpRequestMessage
             {
                 Content = new StringContent(json),
-                RequestUri = new Uri(link),
+                RequestUri = new Uri(string.Format("{0}/{1}",hostAddress, link)),
                 Method = HttpMethod.Post
             };
             request.Content.Headers.ContentType = new MediaTypeHeaderValue(mediaType);
@@ -77,13 +77,13 @@ namespace test
             return response;
         }
 
-        public HttpResponseMessage PutJsonByLink(string link, object data)
+        public HttpResponseMessage Put(string link, string data)
         {
-            var json = JsonConvert.SerializeObject(data);
+//            var json = JsonConvert.SerializeObject(data);
             var request = new HttpRequestMessage
             {
-                Content = new StringContent(json),
-                RequestUri = new Uri(link),
+                Content = new StringContent(data),
+                RequestUri = new Uri(string.Format("{0}/{1}", hostAddress, link)),
                 Method = HttpMethod.Put
             };
             request.Content.Headers.ContentType = new MediaTypeHeaderValue(mediaType);

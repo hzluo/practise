@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 
 namespace webapi_format.Controllers
@@ -27,13 +23,26 @@ namespace webapi_format.Controllers
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]OfficeRequest request)
         {
+            Fake.Value = (request);
+            var office = new Office();
+            request.HomeCountry.Write(v => office.HomeCountry = v);
         }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
         }
+    }
+
+    public class Office
+    {
+        public string HomeCountry { get; set; }
+    }
+
+    public class Fake
+    {
+        public static OfficeRequest Value { get; set; }
     }
 }
